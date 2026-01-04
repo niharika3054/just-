@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Baby ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        color: white;
+        animation: zoomIn 2.5s ease;
+    }
+
+    h1 {
+        font-size: 3.8rem;
+        animation: glow 2s infinite alternate;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-top: 15px;
+        animation: fadeSlide 4s infinite;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff2e63;
+        }
+        to {
+            text-shadow: 0 0 20px #fff, 0 0 40px #ff2e63;
+        }
+    }
+
+    @keyframes fadeSlide {
+        0% { opacity: 0; transform: translateY(20px); }
+        50% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-20px); }
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Hearts & Balloons */
+    .float {
+        position: absolute;
+        bottom: -50px;
+        font-size: 26px;
+        animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-110vh) scale(1.5);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Background Music -->
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/02/audio_42e4a33a4c.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+    <h1>🎉 Happy Birthday Baby 🎉</h1>
+    <h2>💖 You are my favorite feeling 💖</h2>
+</div>
+
+<script>
+    const emojis = ["❤️", "💖", "🎈", "💕", "💘"];
+
+    function createFloat() {
+        const item = document.createElement("div");
+        item.classList.add("float");
+        item.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.animationDuration = (4 + Math.random() * 4) + "s";
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 8000);
+    }
+
+    setInterval(createFloat, 300);
+</script>
+
+</body>
+</html>
+
